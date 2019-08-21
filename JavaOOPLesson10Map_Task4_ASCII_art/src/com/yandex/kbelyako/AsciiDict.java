@@ -24,7 +24,6 @@ public class AsciiDict {
 		super();
 		this.dict = mapFill("Alpha1.txt");
 		this.heigh = 9;
-
 	}
 
 	private Map<Character, String[]> mapFill(String path) {
@@ -58,7 +57,7 @@ public class AsciiDict {
 		} catch (IOException e) {
 			System.out.println("ERROR");
 		}
-		mapFormat(dict);
+		addBlank(dict);
 		return dict;
 	}
 
@@ -75,7 +74,7 @@ public class AsciiDict {
 		}
 	}
 	
-	private void mapFormat(Map<Character, String[]> inMap) {
+	private void addBlank(Map<Character, String[]> inMap) {
 		
 		String[] asii_Char = new String[9];
 		for (int i = 0; i < asii_Char.length; i++) {
