@@ -16,14 +16,13 @@ import java.util.Set;
 import java.util.Map;
 
 public class AsciiDict {
-
 	private Map<Character, String[]> dict;
 	private int heigh;
 
 	public AsciiDict() {
 		super();
-		this.dict = mapFill("Alpha1.txt");
 		this.heigh = 9;
+		this.dict = mapFill("Alpha1.txt");
 	}
 
 	private Map<Character, String[]> mapFill(String path) {
@@ -37,19 +36,18 @@ public class AsciiDict {
 				lineCounter = lineCounter + 1;
 				// if (tempStr.charAt(0)!=' ' || tempStr.charAt(0)!='*') {
 				if (tempStr.matches("[A-Z?]")) {
-					char key = tempStr.charAt(0);				
-					String[] asiiChar = new String[9];
-					for (int i = 0; i < 9; i++) {
+					char key = tempStr.charAt(0);
+					String[] asiiChar = new String[this.heigh];
+					for (int i = 0; i < this.heigh; i++) {
 						String str2 = "";
 						tempStr = f.readLine();
 						for (int j = 0; j <= 12 - tempStr.length(); j++) {
 							str2 = str2 + " ";
 						}
 						tempStr = tempStr + str2;
-						 //System.out.println(tempStr);
+						// System.out.println(tempStr);
 						asiiChar[i] = tempStr;
 					}
-					// dict.put(key, asiiChar);
 					dict.put(key, asiiChar);
 				}
 			}
@@ -73,16 +71,13 @@ public class AsciiDict {
 			System.out.println(res_str);
 		}
 	}
-	
-	private void addBlank(Map<Character, String[]> inMap) {
-		
-		String[] asiiChar = new String[9];
-		for (int i = 0; i < asiiChar.length; i++) {
-			asiiChar[i]="          ";
-		}		
-		inMap.put(' ', asiiChar);
-		//Map<Character, String[]> dict = new HashMap();
 
+	private void addBlank(Map<Character, String[]> inMap) {
+		String[] asiiChar = new String[this.heigh];
+		for (int i = 0; i < asiiChar.length; i++) {
+			asiiChar[i] = "          ";
+		}
+		inMap.put(' ', asiiChar);
 	}
 
 }
